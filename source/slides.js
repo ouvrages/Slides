@@ -539,7 +539,8 @@
 			pagination: true, // [Boolean] Auto generate the pagination
 			effects: {
 				navigation: "slide",  // [String] Can be either "slide" or "fade"
-				pagination: "slide" // [String] Can be either "slide" or "fade"
+				pagination: "slide", // [String] Can be either "slide" or "fade"
+        auto: "slide", // [String] Can be either "slide" or "fade"
 			},
 			direction: "left", // [String] Define the slide direction: "Up", "Right", "Down", "left"
 			fade: {
@@ -958,11 +959,11 @@
 		},
 		play: function( gotoNext ) {
 			if (gotoNext !== false) {
-				this._navigate("next");
+				this._navigate("next", this.options.effects.auto);
 			}
 			
 			var playInterval = setInterval( $.proxy(function() {
-				this._navigate("next");
+				this._navigate("next", this.options.effects.auto);
 			}, this), this.options.playInterval);
 			
 			// Set status
